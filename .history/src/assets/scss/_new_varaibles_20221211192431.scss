@@ -1,0 +1,110 @@
+$myFont: Helvetica,
+sans-serif;
+$myFontSize: 18px;
+$myWidth: 680px;
+$background-secondary: #303d83;
+$header-Border-raddius-top-left: 5px;
+$header-Border-raddius-top-right: 5px;
+$border-radius: 5px;
+$background: #FF0000;
+$secondary_bg: #FF2E2E;
+$report-danger: #E8345F;
+$report-warning: #F9BB14;
+$report-primary: #FF5C5C;
+$report-success: #26A958;
+$color:#FF8A8A;
+$commercial-clr: #FF2E2E;
+$gradient_left_color: #FF0000;
+$gradient_right_color: #7928CA;
+$custom-bg-success: #1DA176;
+$custom-bg-waring: #ffcc00;
+$custom-bg-red: #FF0000;
+$custom-text-color: #8392AB;
+$border-radius: 3px;
+$card-border-radius: 15px;
+$sidebar-dark-bg: #303d83;
+$sidebar-dark-menu-item-color: #ffffff;
+$sidebar-dark-menu-sub-item-color: #ffffff;
+$sidebar-dark-menu-item-icon-color: #ffffff;
+$sidebar-dark-menu-item-hover-color: #ffffff;
+$sidebar-dark-menu-item-active-color: #ffffff !important;
+$sidebar-dark-menu-item-active-bg: #ffffff;
+$sidebar-width: 240px;
+$sidebar-collapsed-width: 70px;
+$sidebar-width-sm: 160px;
+// Vertical Sidebar - Light
+$sidebar-bg: #303d83;
+$sidebar-menu-item-color: #ffffff;
+$sidebar-menu-sub-item-color: #ffffff;
+$sidebar-menu-item-icon-color: #ffffff;
+$sidebar-menu-item-hover-color: #ffffff;
+$sidebar-menu-item-active-color: #000000;
+$sidebar-menu-item-active-bg: #ffffff;
+// Vertical Colored Sidebar - Colored
+$sidebar-colored-bg: #626ed4; //2c313a
+$sidebar-colored-menu-item-color: rgba($white, 0.7);
+$sidebar-colored-menu-sub-item-color: rgba($white, 0.7);
+$sidebar-colored-menu-item-icon-color: rgba($white, 0.7);
+$sidebar-colored-menu-item-hover-color: rgba($white, 1.0);
+$sidebar-colored-menu-item-active-color: rgba($white, 1.0);
+$sidebar-colored-menu-item-active-bg: #ffffff;
+// Topbar - Deafult Light
+$header-height: 80px;
+$header-bg: #ffffff;
+$header-item-color: #525f80;
+// Topbar - Dark
+$header-dark-bg: #303d83;
+$header-dark-item-color: #ffffff;
+// Topbar Search
+$topbar-search-bg: #e0e0ea;
+// Footer
+$footer-height: 60px;
+$footer-bg: #f2f2f5;
+$footer-color: #74788d;
+// Horizontal nav
+$topnav-bg: #333547;
+$menu-item-color: #a1a2ab;
+$menu-subitem-color: #66676d;
+$menu-item-active-color: #626ed4;
+// Right Sidebar
+$rightbar-width: 280px;
+// Display
+$display-none: none;
+$display-block: block;
+// Brand 
+$navbar-brand-box-width: 240px;
+// Secondary font
+$font-family-secondary: 'Sarabun',
+sans-serif;
+// Boxed layout width
+$boxed-layout-width: 1300px;
+$boxed-body-bg: #e3e3e3;
+// Font Weight
+$fw-medium: 500;
+$font-weight-semibold: 600;
+// apex charts
+$apex-grid-color: #f7f7f7;
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+$grays: ( "100": $gray-100, "200": $gray-200, "300": $gray-300, "400": $gray-400, "500": $gray-500, "600": $gray-600, "700": $gray-700, "800": $gray-800, "900": $gray-900);
+$blue: #626ed4;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$red: #ec4561;
+$orange: #f1734f;
+$yellow: #f8b425;
+$green: #02a499;
+$teal: #050505;
+$cyan: #38a4f8;
+$brown: #8d6e63;
+$blue-grey: #90a4ae;
+$lime: #afb42b;
