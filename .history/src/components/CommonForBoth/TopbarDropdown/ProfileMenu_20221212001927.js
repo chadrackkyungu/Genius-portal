@@ -1,0 +1,57 @@
+import React, { useState, useEffect } from "react"
+import PropTypes from 'prop-types'
+import {
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+} from "reactstrap"
+import { withTranslation } from "react-i18next"
+import { connect } from "react-redux"
+import { withRouter, Link } from "react-router-dom"
+import user1 from "../../../assets/images/users/user-4.jpg"
+import { useStore1Selector } from "./../../../index";
+import { loginUser } from "../../../Redux/Slices/userSlice";
+import { LogoutRoute } from "components/RouteName"
+
+const ProfileMenu = props => {
+  const [menu, setMenu] = useState(false)
+  const userDet = useStore1Selector(loginUser)
+  const imageProfile = userDet?.data?.data?.photo
+
+  return (
+    <React.Fragment>
+      <Dropdown isOpen={menu} toggle={() => setMenu(!menu)} className="d-inline-block">
+        <DropdownToggle className="btn header-item waves-effect profile__btn" id="page-header-user-dropdown" tag="button">
+          <img className="rounded-circle header-profile-user"
+            src={!Image ? user1 : `${process.env.REACT_APP_IMG_API}img/users/${imageProfile}`}
+            alt="Header Avatar"
+          />
+          <p>Logout</p>
+        </DropdownToggle>
+        <DropdownMenu className="dropdown-menu-end">
+
+          <Link to={LogoutRoute} className="dropdown-item">
+            <i className="bx bx-power-off font-size-16 align-middle me-1 text-danger" />
+            <span>{props.t("Logout")}</span>
+          </Link>
+
+        </DropdownMenu>
+      </Dropdown>
+    </React.Fragment>
+  )
+}
+
+ProfileMenu.propTypes = {
+  success: PropTypes.any,
+  t: PropTypes.any
+}
+
+const mapStatetoProps = state => {
+  const { error, success } = state.Profile
+  return { error, success }
+}
+
+export default withRouter(
+  connect(mapStatetoProps, {})(withTranslation()(ProfileMenu))
+)
