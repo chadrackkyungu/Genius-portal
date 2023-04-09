@@ -57,16 +57,6 @@ const Dashboard = () => {
 
                     {loading ? <Loading /> : <DetailsBox data={data} />}
 
-
-                    <div>
-                        <h5 className="mt-5">PDF Documents</h5>
-                        {document?.data?.data.map((document, index) => (
-                            <div key={index}>
-                                <embed src={`${process.env.REACT_APP_IMG_API}docs/projects/${document}`} type="application/pdf" width="80" height="70" />
-                            </div>
-                        ))}
-                    </div>
-
                 </Container>
             </div>
 

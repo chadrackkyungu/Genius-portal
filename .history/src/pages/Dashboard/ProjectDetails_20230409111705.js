@@ -40,7 +40,7 @@ const Dashboard = () => {
             .catch(error => console.log('error', error));
     }, [id])
 
-    console.log(document?.data?.data)
+    console.log(document)
 
     return (
         <React.Fragment>
@@ -51,21 +51,9 @@ const Dashboard = () => {
                 <Container fluid>
                     <Link to="/dashboard"> <BsArrowLeft /> Back </Link>
 
-                    <div className="text-end">
-                        <button className="btn add__btn mb-4 text-white" onClick={() => setOpenModal(true)}> Add a PDF </button>
-                    </div>
+                    <button className="btn add__btn mb-4 text-white" onClick={() => setOpenModal(true)}> Add a PDF </button>
 
                     {loading ? <Loading /> : <DetailsBox data={data} />}
-
-
-                    <div>
-                        <h5 className="mt-5">PDF Documents</h5>
-                        {document?.data?.data.map((document, index) => (
-                            <div key={index}>
-                                <embed src={`${process.env.REACT_APP_IMG_API}docs/projects/${document}`} type="application/pdf" width="80" height="70" />
-                            </div>
-                        ))}
-                    </div>
 
                 </Container>
             </div>

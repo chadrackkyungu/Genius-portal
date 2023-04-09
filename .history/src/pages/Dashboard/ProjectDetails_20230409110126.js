@@ -24,9 +24,15 @@ const Dashboard = () => {
     const [document, setDocument] = useState()
     const { data, loading, length, error, reFetch } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/projects/${id}`, token);
 
+    {
+        const { data, loading, length, error, reFetch } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/documents/${id}`, token);
+        setDocument(data)
+    }
+
     useEffect(() => {
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", `Bearer ${token}`);
+        myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTMwNjA0NTFiOGRhOWZkOGVlZjRmNSIsImlhdCI6MTY4MTAxOTQ5MSwiZXhwIjoxNjgyNzQ3NDkxfQ.24UlEmJHTPtrX1mtsHB5XIUyvjCfVujeDk5lzt5ifpw");
+        myHeaders.append("Cookie", "jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTMwNjA0NTFiOGRhOWZkOGVlZjRmNSIsImlhdCI6MTY4MTAxOTQ5MSwiZXhwIjoxNjgyNzQ3NDkxfQ.24UlEmJHTPtrX1mtsHB5XIUyvjCfVujeDk5lzt5ifpw");
 
         var requestOptions = {
             method: 'GET',
@@ -34,13 +40,11 @@ const Dashboard = () => {
             redirect: 'follow'
         };
 
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/documents/${id}`, requestOptions)
-            .then(response => response.json())
-            .then(result => setDocument(result))
+        fetch("http://localhost:8080/api/v1/documents/64326c87dee3a4eb3c6dc27a", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
             .catch(error => console.log('error', error));
     }, [id])
-
-    console.log(document?.data?.data)
 
     return (
         <React.Fragment>
@@ -50,23 +54,9 @@ const Dashboard = () => {
 
                 <Container fluid>
                     <Link to="/dashboard"> <BsArrowLeft /> Back </Link>
-
-                    <div className="text-end">
-                        <button className="btn add__btn mb-4 text-white" onClick={() => setOpenModal(true)}> Add a PDF </button>
-                    </div>
-
                     {loading ? <Loading /> : <DetailsBox data={data} />}
 
-
-                    <div>
-                        <h5 className="mt-5">PDF Documents</h5>
-                        {document?.data?.data.map((document, index) => (
-                            <div key={index}>
-                                <embed src={`${process.env.REACT_APP_IMG_API}docs/projects/${document}`} type="application/pdf" width="80" height="70" />
-                            </div>
-                        ))}
-                    </div>
-
+                    <button className="btn add__btn mb-4 text-white" onClick={() => setOpenModal(true)}> Add a PDF </button>
                 </Container>
             </div>
 

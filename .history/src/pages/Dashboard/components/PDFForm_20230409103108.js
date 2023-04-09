@@ -11,7 +11,7 @@ import CustomBtn from 'components/CustomBtn';
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 22, 23, 24, 25, 26, 27, 28]
 const MAX_COUNT = 20;
 
-function ProjectForm({ onClose, reFetch }) {
+function PDFForm({ onClose, reFetch }) {
 
     const userDet = useStore1Selector(loginUser);
     const token = userDet?.token;
@@ -84,20 +84,8 @@ function ProjectForm({ onClose, reFetch }) {
     return (
         <>
             <Row>
-                <Col md={12} className="text-center margin-0">
-                    <label>Upload image cover</label>
-                    <div className="d-flex justify-content-center align-items-center border">
-                        <img src={imageCover === undefined ? Image : imageCover} alt="Image cover" width={500} height={200} className="m-5" />
-                        <Button className="btn-icon btn-icon-only position-absolute"
-                            onClick={onThumbChangeClickImageCover}
-                        > <FcAddImage size={40} />
-                        </Button>
-                        <input type="file" ref={refFileUploadImageCover} className="file-upload d-none" accept="image/*" onChange={changeThumbImageCover} />
-                    </div>
-                </Col>
-
                 <Col md={12}>
-                    <label className="mt-5">Upload maximum 20 images</label>
+                    <label className="mt-5">Upload maximum 3 images</label>
                     <input type="file" className="form-control" multiple accept="image/png, image/jpeg, image/jpg" onChange={handleFileEvent} />
                 </Col>
 
@@ -106,36 +94,6 @@ function ProjectForm({ onClose, reFetch }) {
                         <AvField placeholder="Enter project name" name="projectName" label="Project Name" className="form-control" type="text" required />
                     </div>
 
-                    <Row>
-                        <Col md={4}>
-                            <div className="mb-3">
-                                <AvField name="days" label="Number of days" className="form-control" type="select" required>
-                                    <option>Select...</option>
-                                    {numbers.map((n, i) => <option key={i}>{n}</option>)}
-                                </AvField>
-                            </div>
-                        </Col>
-                        <Col md={4}>
-                            <div className="mb-3">
-                                <AvField name="weeks" label="Number of weeks(optional)" className="form-control" type="select">
-                                    <option>Select...</option>
-                                    {numbers.map((n, i) => <option key={i}>{n}</option>)}
-                                </AvField>
-                            </div>
-                        </Col>
-                        <Col md={4}>
-                            <div className="mb-3">
-                                <AvField name="months" label="Number of months(optional)" className="form-control" type="select">
-                                    <option>Select...</option>
-                                    {numbers.map((n, i) => <option key={i}>{n}</option>)}
-                                </AvField>
-                            </div>
-                        </Col>
-                        <div className="mb-3">
-                            <AvField name="description" label="Description" className="form-control" type="textarea">
-                            </AvField>
-                        </div>
-                    </Row>
                     <CustomBtn Pending={pending} btnName="Submit" />
                 </AvForm>
             </Row>
@@ -143,4 +101,4 @@ function ProjectForm({ onClose, reFetch }) {
     )
 }
 
-export default ProjectForm
+export default PDFForm

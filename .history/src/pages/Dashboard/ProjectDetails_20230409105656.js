@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { loginUser } from "../../Redux/Slices/userSlice";
 import { useStore1Selector } from 'index';
 import useFetch from './../../hooks/useFecth';
@@ -21,26 +21,10 @@ const Dashboard = () => {
     const [openModal, setOpenModal] = useState(false);
     const userDet = useStore1Selector(loginUser);
     const token = userDet?.token;
-    const [document, setDocument] = useState()
     const { data, loading, length, error, reFetch } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/projects/${id}`, token);
-
-    useEffect(() => {
-        var myHeaders = new Headers();
-        myHeaders.append("Authorization", `Bearer ${token}`);
-
-        var requestOptions = {
-            method: 'GET',
-            headers: myHeaders,
-            redirect: 'follow'
-        };
-
-        fetch(`${process.env.REACT_APP_BACKEND_URL}/documents/${id}`, requestOptions)
-            .then(response => response.json())
-            .then(result => setDocument(result))
-            .catch(error => console.log('error', error));
-    }, [id])
-
-    console.log(document?.data?.data)
+    {
+        const { data, loading, length, error, reFetch } = useFetch(`${process.env.REACT_APP_BACKEND_URL}/projects/${id}`, token);
+    }
 
     return (
         <React.Fragment>
@@ -50,23 +34,9 @@ const Dashboard = () => {
 
                 <Container fluid>
                     <Link to="/dashboard"> <BsArrowLeft /> Back </Link>
-
-                    <div className="text-end">
-                        <button className="btn add__btn mb-4 text-white" onClick={() => setOpenModal(true)}> Add a PDF </button>
-                    </div>
-
                     {loading ? <Loading /> : <DetailsBox data={data} />}
 
-
-                    <div>
-                        <h5 className="mt-5">PDF Documents</h5>
-                        {document?.data?.data.map((document, index) => (
-                            <div key={index}>
-                                <embed src={`${process.env.REACT_APP_IMG_API}docs/projects/${document}`} type="application/pdf" width="80" height="70" />
-                            </div>
-                        ))}
-                    </div>
-
+                    <button className="btn add__btn mb-4 text-white" onClick={() => setOpenModal(true)}> Add a PDF </button>
                 </Container>
             </div>
 

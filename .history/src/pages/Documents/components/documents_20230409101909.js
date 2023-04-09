@@ -97,7 +97,7 @@ function ProjectForm({ onClose, reFetch }) {
                 </Col>
 
                 <Col md={12}>
-                    <label className="mt-5">Upload maximum 20 images</label>
+                    <label className="mt-5">Upload maximum 3 images</label>
                     <input type="file" className="form-control" multiple accept="image/png, image/jpeg, image/jpg" onChange={handleFileEvent} />
                 </Col>
 
@@ -106,37 +106,8 @@ function ProjectForm({ onClose, reFetch }) {
                         <AvField placeholder="Enter project name" name="projectName" label="Project Name" className="form-control" type="text" required />
                     </div>
 
-                    <Row>
-                        <Col md={4}>
-                            <div className="mb-3">
-                                <AvField name="days" label="Number of days" className="form-control" type="select" required>
-                                    <option>Select...</option>
-                                    {numbers.map((n, i) => <option key={i}>{n}</option>)}
-                                </AvField>
-                            </div>
-                        </Col>
-                        <Col md={4}>
-                            <div className="mb-3">
-                                <AvField name="weeks" label="Number of weeks(optional)" className="form-control" type="select">
-                                    <option>Select...</option>
-                                    {numbers.map((n, i) => <option key={i}>{n}</option>)}
-                                </AvField>
-                            </div>
-                        </Col>
-                        <Col md={4}>
-                            <div className="mb-3">
-                                <AvField name="months" label="Number of months(optional)" className="form-control" type="select">
-                                    <option>Select...</option>
-                                    {numbers.map((n, i) => <option key={i}>{n}</option>)}
-                                </AvField>
-                            </div>
-                        </Col>
-                        <div className="mb-3">
-                            <AvField name="description" label="Description" className="form-control" type="textarea">
-                            </AvField>
-                        </div>
-                    </Row>
                     <CustomBtn Pending={pending} btnName="Submit" />
+
                 </AvForm>
             </Row>
         </>

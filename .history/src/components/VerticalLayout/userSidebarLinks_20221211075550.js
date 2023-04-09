@@ -6,9 +6,16 @@ function userSidebarLinks() {
     return (
         <>
             <li>
-                <Link to={DashboardRoute} className=" waves-effect">
+                <Link to="/#" className="has-arrow waves-effect">
                     <i className="ti-layout-grid2-alt"></i> <span>My Projects</span>
                 </Link>
+                <ul className="sub-menu" aria-expanded="false">
+                    <li>
+                        <Link to={DashboardRoute}>
+                            <i className="ti-house"></i> <span> My projects </span>
+                        </Link>
+                    </li>
+                </ul>
             </li>
         </>
     )

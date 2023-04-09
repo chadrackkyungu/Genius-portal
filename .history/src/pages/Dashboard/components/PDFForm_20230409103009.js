@@ -11,7 +11,7 @@ import CustomBtn from 'components/CustomBtn';
 const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 22, 23, 24, 25, 26, 27, 28]
 const MAX_COUNT = 20;
 
-function ProjectForm({ onClose, reFetch }) {
+function PDFForm({ onClose, reFetch }) {
 
     const userDet = useStore1Selector(loginUser);
     const token = userDet?.token;
@@ -97,7 +97,7 @@ function ProjectForm({ onClose, reFetch }) {
                 </Col>
 
                 <Col md={12}>
-                    <label className="mt-5">Upload maximum 20 images</label>
+                    <label className="mt-5">Upload maximum 3 images</label>
                     <input type="file" className="form-control" multiple accept="image/png, image/jpeg, image/jpg" onChange={handleFileEvent} />
                 </Col>
 
@@ -143,4 +143,4 @@ function ProjectForm({ onClose, reFetch }) {
     )
 }
 
-export default ProjectForm
+export default PDFForm
